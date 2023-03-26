@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import  {addContact }from '../../redux/contactSlice/contactsOperations';
+import { addContact } from '../../redux/contactSlice/contactsOperations';
 import { selectContacts } from '../../redux/contactSlice/contactsSelector';
 import css from '../ContactForm/ContactForm.module.css';
 
@@ -27,6 +27,10 @@ const ContactForm = () => {
     e.preventDefault();
     
     const dublicate = contacts.find(contact => contact.name === name);
+    console.log(number)
+    console.log(name)
+
+
     if (dublicate) {
       alert(`${name} is already in your contact list`);
       return;

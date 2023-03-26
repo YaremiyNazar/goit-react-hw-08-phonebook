@@ -1,34 +1,37 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
-import  {fetchContacts}  from 'redux/contactSlice/contactsOperations';
-
-import ContactList from '../components/ContactList/ContactList';
-import ContactForm from '../components/ContactForm/ContactForm';
-import Filter from '../components/Filter/Filter';
+import Navigation from './Navigation/Navigation';
+import AuthLayout from './AuthLayout/AuthLayout';
+import PrivatRoute from './PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
+import ContactPage from '../pages/ContactPage/ContactPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import RegisterPage from '../pages/RegistrationPage/RegistrationPage';
 
 import css from '../components/App.module.css';
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  
   return (
-    <div className={css.wrapper}>
-      <div className={css.contact__form}>
-        <h1>PhoneBook</h1>
-        <ContactForm />
-      </div>
-      <div className={css.contact}>
-        <h2>Contacts</h2>
-        <Filter />
-        { <ContactList />}
-      </div>
-    </div>
+    <>
+      <AuthLayout>
+        <div className={css.wrapper}>
+          <BrowserRouter basename="/goit-react-hw-08-phonebook">
+            <Navigation />
+            <Routes>
+              <Route element={<PublicRoute />}>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+              </Route>
+              <Route element={<PrivatRoute />}>
+                <Route path="/contacts" element={<ContactPage />} />
+              </Route>
+            </Routes>
+            <ToastContainer />
+          </BrowserRouter>
+        </div>
+      </AuthLayout>
+    </>
   );
 };
 export default App;
