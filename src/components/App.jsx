@@ -8,7 +8,7 @@ import PublicRoute from './PublicRoute/PublicRoute';
 import ContactPage from '../pages/ContactPage/ContactPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import RegisterPage from '../pages/RegistrationPage/RegistrationPage';
-
+import NotificationPage from "../pages/NotificationPage/NotificationPage"
 import css from '../components/App.module.css';
 
 const App = () => {
@@ -19,6 +19,7 @@ const App = () => {
           <BrowserRouter basename="/goit-react-hw-08-phonebook">
             <Navigation />
             <Routes>
+              <Route path="/" element={<NotificationPage />} />
               <Route element={<PublicRoute />}>
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
