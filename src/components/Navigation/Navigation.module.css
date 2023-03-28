@@ -22,6 +22,7 @@
   position: sticky;
   z-index: 1100;
   display: flex;
+  justify-content: space-between;
   justify-content: flex-end;
   align-items: center;
   height: 80px;
@@ -33,4 +34,29 @@
 }
 .header__link:global(.active) {
   color: red;
+}
+.contact__link {
+  display: flex;
+  justify-content: center;
+  margin-right: 750px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 120px;
+  color: white;
+  border: 2px solid orange;
+  border-radius: 10px;
+  padding: 5px 15px;
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+.contact__link:global(.active) {
+  color: red;
+}
+.contact__link:hover {
+  color: black;
+  background-color: orange;
 }

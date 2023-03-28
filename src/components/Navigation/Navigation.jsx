@@ -1,8 +1,11 @@
-
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Authorisation from './Authorisation/Authorisation';
 import UserMenu from './UserMenu/UserMenu';
-import { selectorLogin, selectorToken } from 'redux/authorisationSlice/authorisationSelectors';
+import {
+  selectorLogin,
+  selectorToken,
+} from 'redux/authorisationSlice/authorisationSelectors';
 
 import css from '../Navigation/Navigation.module.css';
 
@@ -13,6 +16,11 @@ const Navigation = () => {
   return (
     <>
       <div className={css.header}>
+        {isLogin && (
+          <NavLink to="contacts" className={css.contact__link}>
+            Phone Book
+          </NavLink>
+        )}
         <div className={css.contacts}>
           {!isLogin && !token && <Authorisation />}
           {isLogin && <UserMenu />}

@@ -9,6 +9,8 @@ import ContactPage from '../pages/ContactPage/ContactPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import RegisterPage from '../pages/RegistrationPage/RegistrationPage';
 import NotificationPage from "../pages/NotificationPage/NotificationPage"
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage"
+
 import css from '../components/App.module.css';
 
 const App = () => {
@@ -26,6 +28,8 @@ const App = () => {
               </Route>
               <Route element={<PrivatRoute />}>
                 <Route path="/contacts" element={<ContactPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+                
               </Route>
             </Routes>
             <ToastContainer />
@@ -35,4 +39,7 @@ const App = () => {
     </>
   );
 };
+
 export default App;
+
+

@@ -13,5 +13,4 @@ const Authorisation = () => {
     </div>
   );
 };
-
 export default Authorisation;
