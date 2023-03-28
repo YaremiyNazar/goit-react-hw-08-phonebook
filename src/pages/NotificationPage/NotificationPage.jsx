@@ -17,7 +17,7 @@ const NotificationPage = () => {
           login
         </p>
       )}
-      {isLogin && <p className={css.text}>go bach to phone book:)</p>}
+      {isLogin && token &&  <p className={css.text}>go bach to phone book:)</p>}
     </div>
   );
 };
