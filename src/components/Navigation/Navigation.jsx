@@ -16,15 +16,15 @@ const Navigation = () => {
   return (
     <>
       <div className={css.header}>
-        {isLogin && (
-          <NavLink to="contacts" className={css.contact__link}>
-            Phone Book
-          </NavLink>
-        )}
         <div className={css.contacts}>
           {!isLogin && !token && <Authorisation />}
           {isLogin && <UserMenu />}
         </div>
+            {isLogin && (
+          <NavLink to="contacts" className={css.contact__link}>
+            Phone Book
+          </NavLink>
+        )}
       </div>
     </>
   );
